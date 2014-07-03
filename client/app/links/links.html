@@ -4,12 +4,12 @@
   <h2>Links</h2>
   <div ng-controller="LinksController">
       <input type="text" name="input" ng-model="key">
-    <div ng-repeat="link in data.links | filter:key | orderBy: '+visits'">
+    <div ng-repeat="link in data.links | filter:key | orderBy: '-visits'">
     <ul>
       <div>
       <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
       <div>
-        <a href="{{ link.base_url + '/' + link.code }}" target="_blank">{{ link.base_url + '/' + link.code }}</a>
+        <a href="{{ link.base_url + '/api/links/' + link.code }}" target="_blank">{{ link.base_url + '/' + link.code }}</a>
       </div>
       <div>
         {{ link.visits }}
