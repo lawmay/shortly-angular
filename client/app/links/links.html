@@ -3,13 +3,17 @@
 <div id='container'>
   <h1>Links</h1>
   <div ng-controller="LinksController">
-    <div ng-repeat="link in data.links">
+      <input type="text" name="input" ng-model="key">
+    <div ng-repeat="link in data.links | filter:key | orderBy: '+visits'">
     <ul>
       <div>
       <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
-      <div>{{ link.base_url + '/#/s/' + link.code }}</div>
-      {{ link }}
-      <!-- {{ link | orderBy: "+link.visits"}} -->
+      <div>
+        <a href="{{ link.base_url + '/' + link.code }}" target="_blank">{{ link.base_url + '/' + link.code }}</a>
+      </div>
+      <div>
+        {{ link.visits }}
+      </div>
       </div>
     </ul>
     </div>
