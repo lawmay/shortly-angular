@@ -7,8 +7,9 @@
     <ul>
       <div>
       <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
-      <div>{{ link.base_url + '/#/' + link.code }}</div>
+      <div>{{ link.base_url + '/#/s/' + link.code }}</div>
       {{ link }}
+      <!-- {{ link | orderBy: "+link.visits"}} -->
       </div>
     </ul>
     </div>

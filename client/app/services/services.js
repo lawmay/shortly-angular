@@ -13,7 +13,7 @@ angular.module('shortly.services', [])
       if ($location.$$path.slice(0,3) === '/s/'){
         for (var i = 0; i < resp.data.length; i++){
           if ($location.$$path.slice(3) === resp.data[i].code){
-            resp.data[i].visits++;
+            resp.data[i].visits = resp.data[i].visits + 1;
             var url = resp.data[i].url;
             resp.data = {};
             resp.data.url = url;
