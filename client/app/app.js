@@ -24,13 +24,12 @@ angular.module('shortly', [
       templateUrl: 'app/links/links.html',
       controller: 'LinksController'
     })
-    .when('/s/:code', {
-      templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
-    })
+    // .when('/s/:code', {
+    //   templateUrl: 'app/links/links.html',
+    //   controller: 'LinksController'
+    // })
     .otherwise( {
-      templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      redirectTo: '/links'
     })
     ;
 
