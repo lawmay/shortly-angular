@@ -7,13 +7,16 @@ angular.module('shortly.links', [])
   $scope.getLinks = function() {
     Links.getLinks()
       .then(function(links) {
-        $scope.data.links = links;
+        if (links.signal){
+          window.location.href = links.url;
+        } else {
+          $scope.data.links = links;
+        }
       })
       .catch(function(error) {
     });
   };
 
-  // $scope.data2 = $scope.getLinks();
   $scope.getLinks();
 
 });
