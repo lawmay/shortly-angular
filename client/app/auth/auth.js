@@ -13,6 +13,7 @@ angular.module('shortly.auth', [])
         $location.path('/links');
       })
       .catch(function (error) {
+        $scope.user.error = 'bad pass/user';
         console.error(error);
       });
   };
@@ -24,6 +25,7 @@ angular.module('shortly.auth', [])
         $location.path('/links');
       })
       .catch(function (error) {
+        $scope.user.error = 'Username already used joker. what you think you first person to put kobe as username gtfo laker fan'
         console.error(error);
       });
   };

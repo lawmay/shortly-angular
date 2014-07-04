@@ -3,9 +3,12 @@
   <div ng-controller="ShortenController">
 
     <form name="shortenLinkForm" ng-submit='addLink()'>
-      <input type="url" name="input" ng-model="link.url" required>
-      <button>shorten</button>
+      <input type="url" name="input" ng-model="link.url" novalidate required>
 
+      <button ng-disabled="!shortenLinkForm.$valid">shorten</button>
+      <div ng-if="shortenLinkForm.input.$error.required && shortenLinkForm.$dirty">Please enter something!</div>
+
+      <div ng-if="shortenLinkForm.$invalid && shortenLinkForm.$dirty && !shortenLinkForm.input.$error.required">Invalid URL! WTF mates?</div>
     </form>
   </div>
   <a href="#/links"> Check yo links hurr >> </a>
